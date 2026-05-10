@@ -20,7 +20,7 @@ app.add_middleware(
 def root():
     return {
         "status": "ClauseGuard API running",
-        "model": "tinyllama (local)"
+        "model": "qwen2:1.5b"
     }
 
 @app.post("/analyze/pdf")
