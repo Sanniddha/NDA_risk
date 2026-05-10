@@ -1,7 +1,7 @@
 import { useState } from "react"
 import axios from "axios"
 
-const BASE = "http://localhost:8000"
+const BASE = "/api"
 
 export default function UploadPanel({ onResult, onLoading }) {
   const [mode, setMode] = useState("pdf")
