@@ -2,7 +2,7 @@ import ollama
 import json
 import re
 
-MODEL = "tinyllama"
+MODEL = "qwen2:1.5b"
 
 SYSTEM_PROMPT = """You are an expert legal contract analyzer helping non-lawyers understand contracts.
 
@@ -40,7 +40,7 @@ Rules:
 
 def analyze_contract(contract_text: str) -> dict:
     # Truncate to avoid overwhelming the model
-    truncated = contract_text[:6000]
+    truncated = contract_text[:2000]
 
     response = ollama.chat(
         model=MODEL,
