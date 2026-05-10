@@ -30,7 +30,7 @@ export default function App() {
           </div>
           <span className="text-xs bg-emerald-50 text-emerald-600 px-3 py-1.5 rounded-full font-medium border border-emerald-200/50 flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            100% Local
+            100% Secure
           </span>
         </div>
       </nav>
@@ -47,7 +47,7 @@ export default function App() {
             <p className="text-gray-400 mt-3 text-lg max-w-lg leading-relaxed">
               Upload a PDF, paste a URL, or paste raw text — get an instant plain-English risk report.
               <span className="block mt-1 text-sm text-gray-300">
-                Powered by local AI. Your documents never leave your device.
+                Powered by Ollama NLP (Natural Language Processing) Engine.
               </span>
             </p>
           </div>
