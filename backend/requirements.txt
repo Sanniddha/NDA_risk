@@ -1,0 +1,9 @@
+fastapi
+npm
+uvicorn
+python-multipart
+pymupdf
+requests
+beautifulsoup4
+ollama
+pydantic

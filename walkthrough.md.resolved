@@ -1,0 +1,84 @@
+# ClauseGuard v2 — Build Walkthrough
+
+## What Was Built
+
+A complete AI-powered legal contract analyzer with **React + FastAPI + Ollama**, running 100% locally.
+
+### Backend (Python/FastAPI)
+
+| File | Purpose |
+|---|---|
+| [requirements.txt](file:///c:/Users/SUBHAMAY%20RAJ/OneDrive/Desktop/ClauseGuard_h/backend/requirements.txt) | Python dependencies |
+| [models.py](file:///c:/Users/SUBHAMAY%20RAJ/OneDrive/Desktop/ClauseGuard_h/backend/models.py) | Pydantic data models for Clause and AnalysisResult |
+| [pdf_parser.py](file:///c:/Users/SUBHAMAY%20RAJ/OneDrive/Desktop/ClauseGuard_h/backend/pdf_parser.py) | PDF text extraction via PyMuPDF |
+| [url_scraper.py](file:///c:/Users/SUBHAMAY%20RAJ/OneDrive/Desktop/ClauseGuard_h/backend/url_scraper.py) | URL content scraper (requests + BeautifulSoup) |
+| [llm_service.py](file:///c:/Users/SUBHAMAY%20RAJ/OneDrive/Desktop/ClauseGuard_h/backend/llm_service.py) | Ollama/Mistral integration with JSON cleanup |
+| [main.py](file:///c:/Users/SUBHAMAY%20RAJ/OneDrive/Desktop/ClauseGuard_h/backend/main.py) | FastAPI app with 3 endpoints: `/analyze/pdf`, `/analyze/url`, `/analyze/text` |
+
+### Frontend (React + Vite + TailwindCSS)
+
+| File | Purpose |
+|---|---|
+| [App.jsx](file:///c:/Users/SUBHAMAY%20RAJ/OneDrive/Desktop/ClauseGuard_h/frontend/src/App.jsx) | Main shell with animated orbs, glassmorphism nav, gradient hero |
+| [UploadPanel.jsx](file:///c:/Users/SUBHAMAY%20RAJ/OneDrive/Desktop/ClauseGuard_h/frontend/src/components/UploadPanel.jsx) | 3-tab input (PDF drag-drop, URL, text) with gradient analyze button |
+| [RiskReport.jsx](file:///c:/Users/SUBHAMAY%20RAJ/OneDrive/Desktop/ClauseGuard_h/frontend/src/components/RiskReport.jsx) | Full analysis report with animated risk meter, clause cards |
+| [ClauseCard.jsx](file:///c:/Users/SUBHAMAY%20RAJ/OneDrive/Desktop/ClauseGuard_h/frontend/src/components/ClauseCard.jsx) | Individual clause display (red for risk, green for safe) |
+| [Loader.jsx](file:///c:/Users/SUBHAMAY%20RAJ/OneDrive/Desktop/ClauseGuard_h/frontend/src/components/Loader.jsx) | Shield icon + spinner with privacy message |
+| [index.css](file:///c:/Users/SUBHAMAY%20RAJ/OneDrive/Desktop/ClauseGuard_h/frontend/src/index.css) | Tailwind + glassmorphism, gradients, scrollbar, glow effects |
+
+---
+
+## UI Enhancements Over Brief
+
+- **Animated background orbs** — floating indigo/purple gradient blobs
+- **Glassmorphism cards** — `backdrop-blur` + semi-transparent backgrounds
+- **Gradient branding** — indigo-to-purple gradient on "ClauseGuard" and "contract."
+- **Drag-and-drop** PDF upload with visual feedback
+- **Micro-animations** — hover lift, tab transitions, staggered report sections
+- **Risk meter glow** — colored glow matching risk level
+- **Inter font** — premium typography from Google Fonts
+- **Custom scrollbar** — styled to match theme
+
+---
+
+## Verification
+
+### Backend
+- ✅ Virtual environment created at `backend/venv/`
+- ✅ All 8 packages installed successfully via pip
+- ✅ Server running at `http://localhost:8000` with hot reload
+
+### Frontend
+- ✅ All 147 npm packages installed
+- ✅ Dev server running at `http://localhost:5173`
+- ✅ Browser verification passed:
+  - Navbar with branding + "100% Local" badge ✓
+  - Hero section with gradient text ✓
+  - 3-tab upload panel with switching ✓
+  - PDF drag-and-drop zone ✓
+  - URL input with icon ✓
+  - Text area with character count ✓
+  - Gradient "Analyze Contract" button ✓
+
+### Browser Recording
+
+![ClauseGuard UI verification](C:/Users/SUBHAMAY RAJ/.gemini/antigravity/brain/ef2d4459-60c0-455f-b90d-32f0eba9acd9/verify_clauseguard_ui_1776607562352.webp)
+
+---
+
+## How to Run
+
+```bash
+# Terminal 1 — Ollama (must be running first)
+ollama serve
+
+# Terminal 2 — Backend
+cd backend
+.\venv\Scripts\activate
+uvicorn main:app --reload --port 8000
+
+# Terminal 3 — Frontend
+cd frontend
+npm run dev
+# Open http://localhost:5173
+```
