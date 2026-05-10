@@ -16,7 +16,7 @@ app.add_middleware(
 
 @app.get("/")
 def root():
-    return {"status": "ClauseGuard API running", "model": "mistral (local)"}
+    return {"status": "ClauseGuard API running", "model": "tinyllama (local)"}
 
 @app.post("/analyze/pdf")
 async def analyze_pdf(file: UploadFile = File(...)):
