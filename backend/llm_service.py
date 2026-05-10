@@ -34,9 +34,9 @@ Rules:
 - Find at least 3 high_risk clauses if they exist
 - Find at least 3 safe_clauses
 - Write for someone with zero legal knowledge
-- Be specific about the real-world impact (e.g. "This means they can delete your account without warning")
-- Return ONLY the JSON. No other text."""
-
+- Be specific about the real-world impact
+- Return ONLY the JSON. No other text.
+"""
 
 def analyze_contract(contract_text: str) -> dict:
     # Truncate to avoid overwhelming the model
@@ -62,9 +62,19 @@ def analyze_contract(contract_text: str) -> dict:
     raw = re.sub(r"^```(?:json)?", "", raw).strip()
     raw = re.sub(r"```$", "", raw).strip()
 
-    # Find the JSON object in the response
+    # Find JSON object inside response
     match = re.search(r"\{.*\}", raw, re.DOTALL)
+
     if match:
         raw = match.group(0)
 
-    return json.loads(raw)
+    try:
+        return json.loads(raw)
+
+    except Exception:
+        return {
+            "summary": raw,
+            "overall_score": "Unknown",
+            "high_risk": [],
+            "safe_clauses": []
+        }
