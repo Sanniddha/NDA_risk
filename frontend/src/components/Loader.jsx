@@ -17,13 +17,13 @@ export default function Loader() {
 
       {/* Text */}
       <div className="text-center space-y-2">
-        <p className="text-gray-700 font-semibold text-lg">Analyzing with local AI...</p>
+        <p className="text-gray-700 font-semibold text-lg">Analyzing with AI...</p>
         <p className="text-gray-400 text-sm max-w-xs mx-auto leading-relaxed">
           This takes 30–60 seconds. Your data never leaves your laptop.
         </p>
         <div className="flex items-center justify-center gap-2 mt-3">
           <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-          <span className="text-xs text-green-600 font-medium">Processing locally via Ollama</span>
+          <span className="text-xs text-green-600 font-medium">Processing via Ollama</span>
         </div>
       </div>
     </div>
