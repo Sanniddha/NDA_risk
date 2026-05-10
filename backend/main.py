@@ -124,4 +124,3 @@ async def analyze_text(contract_text: str = Form(...)):
     result["source_name"] = "Pasted text"
 
     return result
-ubuntu@ip-172-31-20-29:~$
